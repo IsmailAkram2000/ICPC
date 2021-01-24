@@ -20,8 +20,8 @@ public:
  
 	void count_sort(vector <int> &p) {
 		vector <int> cnt(n);
-	//	for(auto a: c)
-	//		cnt[a]++;
+		for(auto a: c)
+		  	cnt[a]++;
 		vector <int> p_new(n), pos(n);
 		pos[0] = 0;
 		for(int i = 1; i < n; i++)
