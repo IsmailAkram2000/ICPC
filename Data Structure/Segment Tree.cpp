@@ -4,26 +4,26 @@ using namespace std;
  
 struct segment_tree{
  
-	ll size;
-	vector<ll> v;
+	int sz;
+	vector<int> v;
  
 	void init(int n) {
-		size = 1;
-		while(size < n)
-			size *= 2;
-		v.resize(2 * size);
+		sz = 1;
+		while(sz < n)
+			sz *= 2;
+		v.resize(2 * sz);
 	}
  
-	void set(ll i, ll x) {
+	void set(int i, int x) {
 		set(i, x, 1, 1, size);
 	}
  
-	void set(ll i, ll x, ll cur, ll l, ll r) {
+	void set(int i, int x, int cur, int l, int r) {
 		if (l == r) {
-			v[cur]=x;
+			v[cur] = x;
 			return;
 		}
-		ll mid = (l + r) / 2;
+		int mid = (l + r) / 2;
 		if (i <= mid) 
 			set(i, x, 2 * cur, l, mid);
 		else 
@@ -31,14 +31,16 @@ struct segment_tree{
 		v[cur] = v[2 * cur] + v[2 * cur + 1];
 	}  
  
-	ll sum(ll l, ll r) {
+	ll sum(int l, int r) {
 		return sum(l, r, 1, 1, size); 
 	}
  
-	ll sum(ll l, ll r, ll cur, ll lx, ll rx) {
-		 if(lx > r || rx < l)	return 0;
-		 if(lx >= l && rx <= r) return v[cur];
-		 ll mid = (lx + rx) / 2;
+	ll sum(int l, int r, int cur, int lx, int rx) {
+		 if(lx > r || rx < l)	
+			 return 0;
+		 if(lx >= l && rx <= r) 
+			 return v[cur];
+		 int mid = (lx + rx) / 2;
 		 ll s1 = sum(l, r, 2 * cur, lx, mid);
 		 ll s2 = sum(l, r, 2 * cur + 1, mid + 1, rx);
 		 return s1 + s2;
