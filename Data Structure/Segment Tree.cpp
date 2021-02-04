@@ -15,7 +15,7 @@ struct segment_tree{
 	}
  
 	void set(int i, int x) {
-		set(i, x, 1, 1, size);
+		set(i, x, 1, 1, sz);
 	}
  
 	void set(int i, int x, int cur, int l, int r) {
@@ -32,7 +32,7 @@ struct segment_tree{
 	}  
  
 	ll sum(int l, int r) {
-		return sum(l, r, 1, 1, size); 
+		return sum(l, r, 1, 1, sz); 
 	}
  
 	ll sum(int l, int r, int cur, int lx, int rx) {
