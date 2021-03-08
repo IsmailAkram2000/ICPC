@@ -138,7 +138,7 @@ struct Treap {
         return lower_bound(root, v);
 	}
 
-	int lower_bound(node *&root, ll& v) {
+	int lower_bound(node *&root, const ll &v) {
 		if(root == Empty)
 			return 0;
 		if(root -> val == v)
